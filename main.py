@@ -15,7 +15,7 @@ while True:
             pygame.quit() # Call the quit function.
             exit()
 
-    screen.blit(test_surface,(0,0))
+    screen.blit(test_surface,(200,100))
 
     pygame.display.update()  # This updates the screen surface.
     clock.tick(60) # This tells the while loop that it shouldnt run faster than 60 frames per sec.
