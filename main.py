@@ -10,11 +10,11 @@ test_font = pygame.font.Font("font/Pixeltype.ttf",50) # Creating a font for disp
 # This is for making a rectangle only
 #test_surface = pygame.Surface((100,200))
 # This is for an image import
-sky_surface = pygame.image.load("sprites/Sky.png")
-ground_surface = pygame.image.load("sprites/ground.png")
+sky_surface = pygame.image.load("sprites/Sky.png").convert_alpha()  # By using convert it will make the images easier to work with.
+ground_surface = pygame.image.load("sprites/ground.png").convert_alpha() # By using convert, our game runs smoother and faster.
 text_surface = test_font.render("My game",False,"Green") # Creating the text surface
 
-snail_surface = pygame.image.load('sprites/snail/snail1.png')
+snail_surface = pygame.image.load('sprites/snail/snail1.png').convert_alpha()
 snail_x_pos = 600
 
 #test_surface.fill('red')
