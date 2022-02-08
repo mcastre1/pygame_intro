@@ -15,10 +15,10 @@ ground_surface = pygame.image.load("sprites/ground.png").convert_alpha() # By us
 text_surface = test_font.render("My game",False,"Green") # Creating the text surface
 
 snail_surface = pygame.image.load('sprites/snail/snail1.png').convert_alpha()
-snail_x_pos = 600
+snail_rectangle = snail_surface.get_rect(bottomleft = (600, 300))
 
 player_surface = pygame.image.load("sprites/player/player_walk_1.png").convert_alpha()
-player_rectangle = player_surface.get_rect(bottomleft=(80,300))
+player_rectangle = player_surface.get_rect(bottomleft=(80,300)) # This is how you make it easier to place an image easier.
 
 #test_surface.fill('red')
 
@@ -31,12 +31,12 @@ while True:
     screen.blit(sky_surface,(0,0))
     screen.blit(ground_surface,(0,300))
     screen.blit(text_surface,(300,50))
-    screen.blit(snail_surface,(snail_x_pos,265))
-    snail_x_pos -= 4
+    screen.blit(snail_surface,snail_rectangle)
+    snail_rectangle.left -= 4
 
-    if snail_x_pos <= 0 - snail_surface.get_width():
-        snail_x_pos = 800
-
+    if snail_rectangle.left <= 0 - snail_rectangle.width:
+        snail_rectangle.left = 800
+    
     screen.blit(player_surface,player_rectangle)
 
     pygame.display.update()  # This updates the screen surface.
