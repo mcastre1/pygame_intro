@@ -17,6 +17,9 @@ text_surface = test_font.render("My game",False,"Green") # Creating the text sur
 snail_surface = pygame.image.load('sprites/snail/snail1.png').convert_alpha()
 snail_x_pos = 600
 
+player_surface = pygame.image.load("sprites/player/player_walk_1.png").convert_alpha()
+player_rectangle = player_surface.get_rect(bottomleft=(80,300))
+
 #test_surface.fill('red')
 
 while True:
@@ -30,8 +33,11 @@ while True:
     screen.blit(text_surface,(300,50))
     screen.blit(snail_surface,(snail_x_pos,265))
     snail_x_pos -= 4
+
     if snail_x_pos <= 0 - snail_surface.get_width():
         snail_x_pos = 800
+
+    screen.blit(player_surface,player_rectangle)
 
     pygame.display.update()  # This updates the screen surface.
     clock.tick(60) # This tells the while loop that it shouldnt run faster than 60 frames per sec.
